@@ -1,0 +1,238 @@
+[
+  {
+    "operator": "PENJUMLAHAN",
+    "tipe": "Penjumlahan 2 Bilangan (Hasilnya 0 s/d 5)"
+  },
+  {
+    "operator": "PENJUMLAHAN",
+    "tipe": "Penjumlahan 2 Bilangan (Hasilnya 6)"
+  },
+  {
+    "operator": "PENJUMLAHAN",
+    "tipe": "Penjumlahan 2 Bilangan (Hasilnya 7)"
+  },
+  {
+    "operator": "PENJUMLAHAN",
+    "tipe": "Penjumlahan 2 Bilangan (Hasilnya 8)"
+  },
+  {
+    "operator": "PENJUMLAHAN",
+    "tipe": "Penjumlahan 2 Bilangan (Hasilnya 9)"
+  },
+  {
+    "operator": "PENJUMLAHAN",
+    "tipe": "Penjumlahan 2 Bilangan (Hasilnya 10)"
+  },
+  {
+    "operator": "PENJUMLAHAN",
+    "tipe": "Penjumlahan 2 Bilangan (Hasilnya 6/7/8)"
+  },
+  {
+    "operator": "PENJUMLAHAN",
+    "tipe": "Penjumlahan 2 Bilangan (Hasilnya 9/10)"
+  },
+  {
+    "operator": "PENJUMLAHAN",
+    "tipe": "Penjumlahan 2 Bilangan (Hasilnya 0 s/d 10)"
+  },
+  {
+    "operator": "PENJUMLAHAN",
+    "tipe": "10 + Bilangan 1 Angka"
+  },
+  {
+    "operator": "PENJUMLAHAN",
+    "tipe": "9 + Bilangan 1 Angka"
+  },
+  {
+    "operator": "PENJUMLAHAN",
+    "tipe": "8 + Bilangan 1 Angka"
+  },
+  {
+    "operator": "PENJUMLAHAN",
+    "tipe": "7 + Bilangan 1 Angka"
+  },
+  {
+    "operator": "PENJUMLAHAN",
+    "tipe": "6 + Bilangan 1 Angka"
+  },
+  {
+    "operator": "PENJUMLAHAN",
+    "tipe": "6/7/8/9 + Bilangan 1 Angka"
+  },
+  {
+    "operator": "PENJUMLAHAN",
+    "tipe": "Penjumlahan 2 Digit + 1 Digit (Tanpa Menyimpan)"
+  },
+  {
+    "operator": "PENJUMLAHAN",
+    "tipe": "Penjumlahan 2 Digit + 1 Digit (Menyimpan)"
+  },
+  {
+    "operator": "PENJUMLAHAN",
+    "tipe": "Penjumlahan 2 Digit + 2 Digit (Menyimpan)"
+  },
+  {
+    "operator": "PENJUMLAHAN",
+    "tipe": "Penjumlahan Maksimal 3 Digit (Menyimpan)"
+  },
+  {
+    "operator": "PENJUMLAHAN",
+    "tipe": "Penjumlahan Maksimal 4 Digit (Menyimpan)"
+  },
+  {
+    "operator": "PENGURANGAN",
+    "tipe": "Pengurangan Bilangan Kurang dari 5"
+  },
+  {
+    "operator": "PENGURANGAN",
+    "tipe": "Pengurangan Bilangan 6 & 7"
+  },
+  {
+    "operator": "PENGURANGAN",
+    "tipe": "Pengurangan Bilangan 8 & 9"
+  },
+  {
+    "operator": "PENGURANGAN",
+    "tipe": "Pengurangan Bilangan 6, 7, 8, 9"
+  },
+  {
+    "operator": "PENGURANGAN",
+    "tipe": "Pengurangan Bilangan 10"
+  },
+  {
+    "operator": "PENGURANGAN",
+    "tipe": "Pengurangan Kurang dari 20 (Tanpa Coret)"
+  },
+  {
+    "operator": "PENGURANGAN",
+    "tipe": "Pengurangan Kurang dari 20 (Sistem Coret)"
+  },
+  {
+    "operator": "PENGURANGAN",
+    "tipe": "Pengurangan Kurang dari 100 (Tanpa Coret)"
+  },
+  {
+    "operator": "PENGURANGAN",
+    "tipe": "Pengurangan Bilangan 2 Digit (Campur)"
+  },
+  {
+    "operator": "PENGURANGAN",
+    "tipe": "Pengurangan Bilangan 3 Digit (Campur)"
+  },
+  {
+    "operator": "PERKALIAN",
+    "tipe": "Perkalian Bilangan 1"
+  },
+  {
+    "operator": "PERKALIAN",
+    "tipe": "Perkalian Bilangan 10"
+  },
+  {
+    "operator": "PERKALIAN",
+    "tipe": "Perkalian Bilangan 2"
+  },
+  {
+    "operator": "PERKALIAN",
+    "tipe": "Perkalian Bilangan 9"
+  },
+  {
+    "operator": "PERKALIAN",
+    "tipe": "Perkalian Bilangan 5"
+  },
+  {
+    "operator": "PERKALIAN",
+    "tipe": "Perkalian Bilangan 5 Khusus (6 x 5, 7 x 5, 8 x 5)"
+  },
+  {
+    "operator": "PERKALIAN",
+    "tipe": "Perkalian Bilangan Kuadrat (Sama)"
+  },
+  {
+    "operator": "PERKALIAN",
+    "tipe": "Perkalian Bilangan 3 Khusus (4 x 3, 5 x 3, 6 x 3, 7 x 3, 8 x 3)"
+  },
+  {
+    "operator": "PERKALIAN",
+    "tipe": "Perkalian Bilangan 4 Khusus (6 x 4, 7 x 4, 8 x 4)"
+  },
+  {
+    "operator": "PERKALIAN",
+    "tipe": "Perkalian Bilangan 3 dan 4  Acak"
+  },
+  {
+    "operator": "PERKALIAN",
+    "tipe": "Perkalian Bilangan 6, 7, 8 (Fokus 6 x 7, 6 x 8, 7 x 8)"
+  },
+  {
+    "operator": "PERKALIAN",
+    "tipe": "Perkalian Bilangan 6, 7, 8 (Acak)"
+  },
+  {
+    "operator": "PERKALIAN",
+    "tipe": "Perkalian Bilangan 1 s/d 10 (Acak)"
+  },
+  {
+    "operator": "PERKALIAN",
+    "tipe": "Perkalian Susun Bilangan 2 Digit (Acak)"
+  },
+  {
+    "operator": "PERKALIAN",
+    "tipe": "Perkalian Susun Bilangan 3 Digit (Acak)"
+  },
+  {
+    "operator": "PEMBAGIAN",
+    "tipe": "Persiapan Pembagian"
+  },
+  {
+    "operator": "PEMBAGIAN",
+    "tipe": "Pembagian 2"
+  },
+  {
+    "operator": "PEMBAGIAN",
+    "tipe": "Pembagian 3"
+  },
+  {
+    "operator": "PEMBAGIAN",
+    "tipe": "Pembagian 4"
+  },
+  {
+    "operator": "PEMBAGIAN",
+    "tipe": "Pembagian 5"
+  },
+  {
+    "operator": "PEMBAGIAN",
+    "tipe": "Pembagian 6"
+  },
+  {
+    "operator": "PEMBAGIAN",
+    "tipe": "Pembagian 7"
+  },
+  {
+    "operator": "PEMBAGIAN",
+    "tipe": "Pembagian 8"
+  },
+  {
+    "operator": "PEMBAGIAN",
+    "tipe": "Pembagian 9"
+  },
+  {
+    "operator": "PEMBAGIAN",
+    "tipe": "Pembagian 10"
+  },
+  {
+    "operator": "PEMBAGIAN",
+    "tipe": "Pembagian 1 Digit (Acak)"
+  },
+  {
+    "operator": "PEMBAGIAN",
+    "tipe": "Pembagian Susun Cara Cepat (2 Digit & 3 Digit)"
+  },
+  {
+    "operator": "PEMBAGIAN",
+    "tipe": "Pembagian Susun Cara Cepat (4 Digit, 5 Digit, 6 Digit)"
+  },
+  {
+    "operator": "PEMBAGIAN",
+    "tipe": "Pembagian Puluhan, Ratusan, dan Ribuan"
+  }
+]
