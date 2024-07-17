@@ -117,7 +117,22 @@ export default function Pembahasan({ navigation, route }) {
                                     fontFamily: fonts.primary[600],
                                     fontSize: 14,
                                     color: colors.primary
-                                }}>( {item.isi} )</Text>
+                                }}>( {item.isi} )
+
+
+                                    {item.b == '?' && ITEM.title == 'PENJUMLAHAN' ? `(${item.isi - item.a})` : ''}
+                                    {item.a == '?' && ITEM.title == 'PENJUMLAHAN' ? `(${item.isi - item.b})` : ''}
+
+                                    {item.b == '?' && ITEM.title == 'PENGURANGAN' ? `(${item.isi + item.a})` : ''}
+                                    {item.a == '?' && ITEM.title == 'PENGURANGAN' ? `(${item.isi + item.b})` : ''}
+
+                                    {item.b == '?' && ITEM.title == 'PERKALIAN' ? `(${item.isi / item.a})` : ''}
+                                    {item.a == '?' && ITEM.title == 'PERKALIAN' ? `(${item.isi / item.b})` : ''}
+
+
+                                    {item.b == '?' && ITEM.title == 'PEMBAGIAN' ? `(${item.isi * item.a})` : ''}
+                                    {item.a == '?' && ITEM.title == 'PEMBAGIAN' ? `(${item.isi * item.b})` : ''}
+                                </Text>
                                 <Text style={{
                                     marginHorizontal: 10,
                                     fontFamily: fonts.primary[600],
