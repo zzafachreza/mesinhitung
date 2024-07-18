@@ -73,7 +73,7 @@ export default function Pembahasan({ navigation, route }) {
                     padding: 10,
                 }}>
 
-                    <FlatList data={SOAL} renderItem={({ item, index }) => {
+                    <FlatList data={SOAL.filter(i => i.status == 'SALAH')} renderItem={({ item, index }) => {
                         return (
 
                             <View style={{
@@ -89,7 +89,7 @@ export default function Pembahasan({ navigation, route }) {
                                     fontFamily: fonts.primary[600],
                                     fontSize: 14,
                                     color: colors.primary
-                                }}>{item.a}</Text>
+                                }}>{new Intl.NumberFormat("id-ID").format(item.a)}</Text>
                                 <Text style={{
                                     marginHorizontal: 10,
                                     fontFamily: fonts.primary[600],
@@ -100,7 +100,7 @@ export default function Pembahasan({ navigation, route }) {
                                     fontFamily: fonts.primary[600],
                                     fontSize: 14,
                                     color: colors.primary
-                                }}>{item.b}</Text>
+                                }}>{new Intl.NumberFormat("id-ID").format(item.b)}</Text>
                                 <Text style={{
                                     marginHorizontal: 10,
                                     fontFamily: fonts.primary[600],
@@ -112,12 +112,12 @@ export default function Pembahasan({ navigation, route }) {
                                     fontFamily: fonts.primary[600],
                                     fontSize: 14,
                                     color: colors.primary
-                                }}>{item.jawaban}</Text>
+                                }}>{new Intl.NumberFormat("id-ID").format(item.jawaban)}</Text>
                                 <Text style={{
                                     fontFamily: fonts.primary[600],
                                     fontSize: 14,
                                     color: colors.primary
-                                }}>( {item.isi} )
+                                }}>( {new Intl.NumberFormat("id-ID").format(item.isi)} )
 
 
                                     {item.b == '?' && ITEM.title == 'PENJUMLAHAN' ? `(${item.isi - item.a})` : ''}

@@ -8,6 +8,7 @@ import moment from 'moment';
 import { cos, multiply } from 'react-native-reanimated';
 import { Stopwatch, Timer } from 'react-native-stopwatch-timer'
 import { useIsFocused } from '@react-navigation/native';
+import 'intl/locale-data/jsonp/id-ID';
 
 export default function Soal({ navigation, route }) {
     const ITEM = route.params;
@@ -346,7 +347,6 @@ export default function Soal({ navigation, route }) {
                     {
                         ITEM.tipe !== 'Perkalian Susun Bilangan 2 Digit (Acak)'
                             && ITEM.tipe !== 'Perkalian Susun Bilangan 3 Digit (Acak)'
-                            && ITEM.tipe !== 'Pembagian 1 Digit (Acak)'
                             && ITEM.tipe !== 'Pembagian Susun Cara Cepat (2 Digit & 3 Digit)'
                             && ITEM.tipe !== 'Pembagian Susun Cara Cepat (4 Digit, 5 Digit, 6 Digit)' ?
 
@@ -361,7 +361,7 @@ export default function Soal({ navigation, route }) {
                                         fontFamily: fonts.primary[800],
                                         fontSize: 40,
 
-                                    }}>{soal[nomor].a}</Text>
+                                    }}>{new Intl.NumberFormat("id-ID").format(soal[nomor].a)}</Text>
                                 }
 
                                 {soal[nomor].a == '?' &&
@@ -371,7 +371,7 @@ export default function Soal({ navigation, route }) {
                                         fontFamily: fonts.primary[800],
                                         fontSize: 40,
 
-                                    }}>{JAWABAN.length == 0 ? '?' : JAWABAN}</Text>
+                                    }}>{JAWABAN.length == 0 ? '?' : new Intl.NumberFormat("id-ID").format(JAWABAN)}</Text>
                                 }
                                 <Text style={{
                                     marginHorizontal: 10,
@@ -386,7 +386,7 @@ export default function Soal({ navigation, route }) {
                                         fontFamily: fonts.primary[800],
                                         fontSize: 40,
 
-                                    }}>{soal[nomor].b}</Text>
+                                    }}>{new Intl.NumberFormat("id-ID").format(soal[nomor].b)}</Text>
                                 }
 
                                 {soal[nomor].b == '?' &&
@@ -396,7 +396,7 @@ export default function Soal({ navigation, route }) {
                                         fontFamily: fonts.primary[800],
                                         fontSize: 40,
 
-                                    }}>{JAWABAN.length == 0 ? '?' : JAWABAN}</Text>
+                                    }}>{JAWABAN.length == 0 ? '?' : new Intl.NumberFormat("id-ID").format(JAWABAN)}</Text>
                                 }
 
                                 <Text style={{
@@ -423,7 +423,7 @@ export default function Soal({ navigation, route }) {
                                         fontFamily: fonts.primary[800],
                                         fontSize: 40,
 
-                                    }}>{JAWABAN}</Text>
+                                    }}>{new Intl.NumberFormat("id-ID").format(JAWABAN)}</Text>
                                 }
                             </View>
                             : <View></View>
@@ -433,7 +433,6 @@ export default function Soal({ navigation, route }) {
 
                     {(ITEM.tipe == 'Perkalian Susun Bilangan 2 Digit (Acak)'
                         || ITEM.tipe == 'Perkalian Susun Bilangan 3 Digit (Acak)'
-                        || ITEM.tipe == 'Pembagian 1 Digit (Acak)'
                         || ITEM.tipe == 'Pembagian Susun Cara Cepat (2 Digit & 3 Digit)'
                         || ITEM.tipe == 'Pembagian Susun Cara Cepat (4 Digit, 5 Digit, 6 Digit)')
                         && <View style={{
