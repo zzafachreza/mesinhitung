@@ -9,15 +9,17 @@ import { cos, multiply } from 'react-native-reanimated';
 import { Stopwatch, Timer } from 'react-native-stopwatch-timer'
 import { useIsFocused } from '@react-navigation/native';
 import 'intl/locale-data/jsonp/id-ID';
+import SoundPlayer from 'react-native-sound-player'
 
 export default function Soal({ navigation, route }) {
-    const ITEM = route.params;
-    console.log(ITEM.tipe)
+    const [ITEM, setITEM] = useState(route.params);
+    console.log(ITEM.operator)
     const DATA = [10, 50, 100];
     const MULAI = moment().format('HH:mm:ss');
     const [habis, setHabis] = useState('');
     const [tinggi, setTinggi] = useState(0);
-    const [JAWABAN, setJAWABAN] = useState('')
+    const [JAWABAN, setJAWABAN] = useState('');
+
 
 
 
@@ -181,8 +183,6 @@ export default function Soal({ navigation, route }) {
 
         }
 
-        console.log('jumlah yang didapat', dataArrLimit.length);
-        console.log('Jumlah Maksimal Soal', ITEM.jumlah)
 
 
 
@@ -221,7 +221,13 @@ export default function Soal({ navigation, route }) {
 
     const isFocus = useIsFocused();
     useEffect(() => {
-
+        if (route.params.tipe == 'Persiapan Pembagian') {
+            setITEM({
+                ...ITEM,
+                title: 'PERKALIAN',
+                operator: 'x'
+            })
+        }
         if (isFocus) {
             generateSoal();
 
@@ -265,7 +271,7 @@ export default function Soal({ navigation, route }) {
                         color: colors.white,
                         fontSize: 20,
                         left: 10,
-                    }}>{ITEM.title} {MULAI}</Text>
+                    }}>{route.params.tipe == 'Persiapan Pembagian' ? 'PEMBAGIAN' : ITEM.title} {MULAI}</Text>
                 </View>
             </View>
             <View style={{
@@ -342,12 +348,14 @@ export default function Soal({ navigation, route }) {
                     height: 150,
                     borderRadius: 10,
                     justifyContent: 'center',
-                    alignItems: 'center'
+                    alignItems: 'center',
+                    overflow: 'hidden'
                 }}>
                     {
                         ITEM.tipe !== 'Perkalian Susun Bilangan 2 Digit (Acak)'
                             && ITEM.tipe !== 'Perkalian Susun Bilangan 3 Digit (Acak)'
                             && ITEM.tipe !== 'Pembagian Susun Cara Cepat (2 Digit & 3 Digit)'
+                            && ITEM.tipe !== 'Pembagian Puluhan, Ratusan, dan Ribuan'
                             && ITEM.tipe !== 'Pembagian Susun Cara Cepat (4 Digit, 5 Digit, 6 Digit)' ?
 
                             <View style={{
@@ -423,7 +431,7 @@ export default function Soal({ navigation, route }) {
                                         fontFamily: fonts.primary[800],
                                         fontSize: 40,
 
-                                    }}>{new Intl.NumberFormat("id-ID").format(JAWABAN)}</Text>
+                                    }}>{JAWABAN.length > 0 ? new Intl.NumberFormat("id-ID").format(JAWABAN) : '?'}</Text>
                                 }
                             </View>
                             : <View></View>
@@ -434,135 +442,50 @@ export default function Soal({ navigation, route }) {
                     {(ITEM.tipe == 'Perkalian Susun Bilangan 2 Digit (Acak)'
                         || ITEM.tipe == 'Perkalian Susun Bilangan 3 Digit (Acak)'
                         || ITEM.tipe == 'Pembagian Susun Cara Cepat (2 Digit & 3 Digit)'
+                        || ITEM.tipe == 'Pembagian Puluhan, Ratusan, dan Ribuan'
                         || ITEM.tipe == 'Pembagian Susun Cara Cepat (4 Digit, 5 Digit, 6 Digit)')
-                        && <View style={{
+                        &&
 
-                            // alignItems: 'center',
-                            justifyContent: 'center'
+                        <View style={{
+                            width: '100%',
+                            flexDirection: 'row',
+                            alignItems: 'center',
                         }}>
-                            {soal[nomor].a !== '?' &&
-
-                                <Text style={{
-                                    textAlign: 'right',
-                                    fontFamily: fonts.primary[800],
-                                    fontSize: 30,
-                                    lineHeight: 35,
-
-                                }}>{soal[nomor].a}</Text>
-                            }
-
-                            {soal[nomor].a == '?' &&
-
-                                <Text style={{
-                                    textAlign: 'right',
-                                    fontFamily: fonts.primary[800],
-                                    fontSize: 30,
-                                    lineHeight: 35,
-
-                                }}>{JAWABAN.length == 0 ? '?' : JAWABAN}</Text>
-                            }
-
-                            {ITEM.operator == ':' && <View style={{
-                                height: 5,
-                                justifyContent: 'center',
-                                alignItems: 'center'
+                            <View style={{
+                                flex: 1,
+                                // justifyContent: 'flex-end',
+                                alignItems: 'flex-end'
                             }}>
-                                <View style={{
-                                    flex: 1,
-                                    borderBottomWidth: 1,
-                                    width: '100%',
-                                }} />
                                 <Text style={{
-                                    right: -14,
-                                    bottom: -14,
-                                    position: 'absolute',
-                                    fontFamily: fonts.primary[800],
-                                    lineHeight: 35,
-                                    fontSize: 20
-                                }}>=</Text>
-                                {(soal[nomor].b !== '?' && soal[nomor].a !== '?' &&
-
-                                    ITEM.operator == ':') &&
-
-                                    <Text style={{
-                                        right: -100,
-                                        bottom: -14,
-                                        position: 'absolute',
-                                        fontFamily: fonts.primary[800],
-                                        fontSize: 30,
-                                        lineHeight: 35,
-                                    }}>{JAWABAN}</Text>
-                                }
-                            </View>}
-
-                            {soal[nomor].b !== '?' &&
-
-                                <Text style={{
-                                    textAlign: 'right',
                                     fontFamily: fonts.primary[800],
                                     fontSize: 30,
                                     lineHeight: 35,
-
-                                }}>{soal[nomor].b}</Text>
-                            }
-
-                            {soal[nomor].b == '?' &&
+                                    borderBottomWidth: 4,
+                                }}>{new Intl.NumberFormat("id-ID").format(soal[nomor].a)}</Text>
 
                                 <Text style={{
-                                    textAlign: 'right',
                                     fontFamily: fonts.primary[800],
                                     fontSize: 30,
                                     lineHeight: 35,
-
-                                }}>{JAWABAN.length == 0 ? '?' : JAWABAN}</Text>
-                            }
-
-                            {ITEM.operator == 'x' && <View style={{
-                                height: 5,
-                                justifyContent: 'center',
-                                alignItems: 'center'
+                                }}>{new Intl.NumberFormat("id-ID").format(soal[nomor].b)}</Text>
+                            </View>
+                            <Text style={{
+                                fontFamily: fonts.primary[800],
+                                fontSize: 30,
+                                lineHeight: 35,
+                            }}>{ITEM.operator == ':' ? '=' : 'x = '}</Text>
+                            <View style={{
+                                flex: 1,
+                                // justifyContent: 'flex-end',
+                                alignItems: 'flex-start'
                             }}>
-                                <View style={{
-                                    flex: 1,
-                                    borderBottomWidth: 1,
-                                    width: '100%',
-                                }} />
-                                <Text style={{
-                                    right: -14,
-                                    bottom: -14,
-                                    position: 'absolute',
-                                    fontFamily: fonts.primary[800],
-                                    lineHeight: 35,
-                                    fontSize: 20
-                                }}>{ITEM.operator}</Text>
-
-
-                            </View>}
-
-
-
-
-                            {(soal[nomor].b == '?' || soal[nomor].a == '?') &&
-
                                 <Text style={{
                                     fontFamily: fonts.primary[800],
                                     fontSize: 30,
                                     lineHeight: 35,
+                                }}>{JAWABAN.length > 0 ? new Intl.NumberFormat("id-ID").format(JAWABAN) : '?'}</Text>
 
-                                }}>{soal[nomor].isi}</Text>
-                            }
-
-                            {(soal[nomor].b !== '?' && soal[nomor].a !== '?') &&
-
-                                ITEM.operator == 'x' &&
-
-                                <Text style={{
-                                    marginHorizontal: 10,
-                                    fontFamily: fonts.primary[800],
-                                    fontSize: 30,
-                                    lineHeight: 35,
-                                }}>{JAWABAN}</Text>
-                            }
+                            </View>
                         </View>
 
                     }
@@ -617,7 +540,7 @@ export default function Soal({ navigation, route }) {
                                     if (item !== 'AC') {
                                         setJAWABAN(JAWABAN + item.toString())
                                     } else {
-                                        if (JAWABAN.length >= 4) {
+                                        if (JAWABAN.length >= 2) {
                                             setJAWABAN('')
                                         } else {
                                             setJAWABAN(JAWABAN.substring(0, JAWABAN.length - 1))
@@ -653,10 +576,12 @@ export default function Soal({ navigation, route }) {
                                 TMP[nomor].jawaban = JAWABAN;
                                 TMP[nomor].status = 'BENAR';
                                 setSoal(TMP);
-                                showMessage({
-                                    type: 'success',
-                                    message: 'Selamat Jawaban Betul !'
-                                })
+                                // showMessage({
+                                //     type: 'success',
+                                //     message: 'Selamat Jawaban Betul !'
+                                // })
+
+                                SoundPlayer.playSoundFile('betul', 'mp3')
 
 
                             } else if (soal[nomor].a == '?' && soal[nomor].b !== '?') {
@@ -680,20 +605,24 @@ export default function Soal({ navigation, route }) {
                                     TMP[nomor].jawaban = JAWABAN;
                                     TMP[nomor].status = 'BENAR';
                                     setSoal(TMP);
-                                    showMessage({
-                                        type: 'success',
-                                        message: 'Selamat Jawaban Betul !'
-                                    })
+                                    // showMessage({
+                                    //     type: 'success',
+                                    //     message: 'Selamat Jawaban Betul !'
+                                    // })
+
+                                    SoundPlayer.playSoundFile('betul', 'mp3')
                                 } else {
 
                                     let TMP = [...soal];
                                     TMP[nomor].jawaban = JAWABAN;
                                     TMP[nomor].status = 'SALAH';
                                     setSoal(TMP);
-                                    showMessage({
-                                        type: 'danger',
-                                        message: 'Maaf Jawaban Salah !'
-                                    })
+                                    // showMessage({
+                                    //     type: 'danger',
+                                    //     message: 'Maaf Jawaban Salah !'
+                                    // })
+
+                                    SoundPlayer.playSoundFile('salah', 'mp3')
 
                                 }
 
@@ -725,20 +654,22 @@ export default function Soal({ navigation, route }) {
                                     TMP[nomor].jawaban = JAWABAN;
                                     TMP[nomor].status = 'BENAR';
                                     setSoal(TMP);
-                                    showMessage({
-                                        type: 'success',
-                                        message: 'Selamat Jawaban Betul !'
-                                    })
+                                    // showMessage({
+                                    //     type: 'success',
+                                    //     message: 'Selamat Jawaban Betul !'
+                                    // })
+                                    SoundPlayer.playSoundFile('betul', 'mp3')
                                 } else {
 
                                     let TMP = [...soal];
                                     TMP[nomor].jawaban = JAWABAN;
                                     TMP[nomor].status = 'SALAH';
                                     setSoal(TMP);
-                                    showMessage({
-                                        type: 'danger',
-                                        message: 'Maaf Jawaban Salah !'
-                                    })
+                                    // showMessage({
+                                    //     type: 'danger',
+                                    //     message: 'Maaf Jawaban Salah !'
+                                    // })
+                                    SoundPlayer.playSoundFile('salah', 'mp3')
 
                                 }
 
@@ -751,10 +682,11 @@ export default function Soal({ navigation, route }) {
                                 TMP[nomor].jawaban = JAWABAN;
                                 TMP[nomor].status = 'SALAH';
                                 setSoal(TMP);
-                                showMessage({
-                                    type: 'danger',
-                                    message: 'Maaf Jawaban Salah !'
-                                })
+                                // showMessage({
+                                //     type: 'danger',
+                                //     message: 'Maaf Jawaban Salah !'
+                                // })
+                                SoundPlayer.playSoundFile('salah', 'mp3')
                             }
 
                             if (nomor < ITEM.jumlah - 1) {

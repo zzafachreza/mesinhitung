@@ -27,13 +27,13 @@ export default function Pembahasan({ navigation, route }) {
                 flexDirection: 'row',
                 alignItems: 'center'
             }}>
-                <TouchableOpacity onPress={() => navigation.goBack()} style={{
+                {/* <TouchableOpacity onPress={() => navigation.goBack()} style={{
                     width: 30,
                     height: 30,
                     left: 10,
                 }}>
                     <Icon color={colors.white} size={30} type='ionicon' name='arrow-back-outline' />
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 <View style={{
                     flex: 0.9,
                     justifyContent: 'center',
@@ -49,7 +49,7 @@ export default function Pembahasan({ navigation, route }) {
                         color: colors.white,
                         fontSize: 20,
                         left: 10,
-                    }}>PEMBAHASAN {ITEM.title}</Text>
+                    }}>PEMBAHASAN {route.params.item.tipe == 'Persiapan Pembagian' ? 'PEMBAGIAN' : ITEM.title}</Text>
                 </View>
             </View>
             <View style={{
@@ -89,7 +89,7 @@ export default function Pembahasan({ navigation, route }) {
                                     fontFamily: fonts.primary[600],
                                     fontSize: 14,
                                     color: colors.primary
-                                }}>{new Intl.NumberFormat("id-ID").format(item.a)}</Text>
+                                }}>{item.a == '?' ? '?' : new Intl.NumberFormat("id-ID").format(item.a)}</Text>
                                 <Text style={{
                                     marginHorizontal: 10,
                                     fontFamily: fonts.primary[600],
@@ -100,7 +100,7 @@ export default function Pembahasan({ navigation, route }) {
                                     fontFamily: fonts.primary[600],
                                     fontSize: 14,
                                     color: colors.primary
-                                }}>{new Intl.NumberFormat("id-ID").format(item.b)}</Text>
+                                }}>{item.b == '?' ? '?' : new Intl.NumberFormat("id-ID").format(item.b)}</Text>
                                 <Text style={{
                                     marginHorizontal: 10,
                                     fontFamily: fonts.primary[600],

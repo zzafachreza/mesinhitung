@@ -28,13 +28,13 @@ export default function Hasil({ navigation, route }) {
                 flexDirection: 'row',
                 alignItems: 'center'
             }}>
-                <TouchableOpacity onPress={() => navigation.goBack()} style={{
+                {/* <TouchableOpacity onPress={() => navigation.goBack()} style={{
                     width: 30,
                     height: 30,
                     left: 10,
                 }}>
                     <Icon color={colors.white} size={30} type='ionicon' name='arrow-back-outline' />
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 <View style={{
                     flex: 0.9,
                     justifyContent: 'center',
@@ -50,7 +50,7 @@ export default function Hasil({ navigation, route }) {
                         color: colors.white,
                         fontSize: 20,
                         left: 10,
-                    }}>HASIL {ITEM.title}</Text>
+                    }}>HASIL {route.params.tipe == 'Persiapan Pembagian' ? 'PEMBAGIAN' : ITEM.title}</Text>
                 </View>
             </View>
             <View style={{
