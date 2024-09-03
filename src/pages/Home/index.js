@@ -26,28 +26,28 @@ export default function Home({ navigation, route }) {
       title: 'PENJUMLAHAN',
       operator: '+',
       background: '#FF5D7D',
-      color: '#DD002C'
+      color: '#FF5D7D'
     },
     {
       image: require('../../assets/A2.png'),
-      title: 'PENGURANGAN',
-      operator: '-',
+      title: 'PEMBAGIAN',
+      operator: ':',
       background: '#CBE558',
-      color: '#829F00'
+      color: '#A9CF00'
     },
     {
       image: require('../../assets/A3.png'),
-      title: 'PERKALIAN',
-      operator: 'x',
+      title: 'PENGURANGAN',
+      operator: '-',
       background: '#FFEA60',
-      color: '#E0C829'
+      color: '#FFEA60'
     },
     {
       image: require('../../assets/A4.png'),
-      title: 'PEMBAGIAN',
-      operator: ':',
+      title: 'PERKALIAN',
+      operator: 'x',
       background: '#66E0F7',
-      color: '#23A5BD'
+      color: '#66E0F7'
     },
   ]
 
@@ -59,45 +59,73 @@ export default function Home({ navigation, route }) {
       <View style={{
         flex: 1,
         padding: 16,
+        justifyContent: 'center',
+
 
       }}>
 
+        <View style={{
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}>
+          <Image source={require('../../assets/logo2.png')} style={{
+            width: windowWidth / 3,
+            height: windowWidth / 3
+          }} />
+          <Text style={{
+            fontFamily: fonts.primary.normal,
+            fontSize: 20,
+            marginTop: 10,
+            textAlign: 'center',
+            color: colors.primary
+          }}>MI. KAHASRI{'\n'}KOTA PROBOLINGGO{'\n'}“Belajar, Berpikir, Beramal Shalih”</Text>
+        </View>
 
-        <FlatList numColumns={2} data={MENU} renderItem={({ item, index }) => {
-          return (
-            <TouchableWithoutFeedback onPress={() => navigation.navigate('Menu', item)}>
-              <View style={{
-                flex: 1,
-                margin: 10,
-              }}>
+        <View style={{
+          marginTop: 10,
+          flex: 1,
+        }}>
+
+          <FlatList numColumns={2} data={MENU} renderItem={({ item, index }) => {
+            return (
+              <TouchableWithoutFeedback onPress={() => navigation.navigate('Menu', item)}>
                 <View style={{
-                  backgroundColor: MENU[index].background,
-                  height: 150,
-                  borderWidth: 5,
-                  borderRadius: 20,
-                  borderColor: colors.white,
+                  flex: 1,
+                  margin: 10,
                   justifyContent: 'center',
                   alignItems: 'center'
                 }}>
-                  <Image source={MENU[index].image} style={{
-                    width: 100,
-                    height: 100,
-                    resizeMode: 'contain'
-                  }} />
+                  <View style={{
+                    backgroundColor: MENU[index].background,
+                    height: windowWidth / 3,
+                    width: windowWidth / 3,
+                    borderWidth: 8,
+                    borderRadius: 20,
+                    borderColor: colors.black,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                  }}>
+                    <Image source={MENU[index].image} style={{
+                      width: 100,
+                      height: 100,
+                      resizeMode: 'contain'
+                    }} />
 
 
+                  </View>
+                  <Text style={{
+                    textAlign: 'center',
+                    fontFamily: fonts.primary.normal,
+                    marginTop: 10,
+                    color: MENU[index].color,
+                    fontSize: 18,
+                  }}>{MENU[index].title}</Text>
                 </View>
-                <Text style={{
-                  textAlign: 'center',
-                  fontFamily: fonts.primary.normal,
-                  marginTop: 16,
-                  color: MENU[index].color,
-                  fontSize: 20,
-                }}>{MENU[index].title}</Text>
-              </View>
-            </TouchableWithoutFeedback>
-          )
-        }} />
+              </TouchableWithoutFeedback>
+            )
+          }} />
+
+        </View>
 
       </View>
       <View style={{

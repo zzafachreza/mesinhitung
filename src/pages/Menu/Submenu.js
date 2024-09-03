@@ -24,7 +24,7 @@ export default function Submenu({ navigation, route }) {
                     height: 30,
                     left: 10,
                 }}>
-                    <Icon color={colors.white} size={30} type='ionicon' name='arrow-back-outline' />
+                    <Icon color={colors.black} size={30} type='ionicon' name='arrow-back-outline' />
                 </TouchableOpacity>
                 <View style={{
                     flex: 0.9,
@@ -38,7 +38,7 @@ export default function Submenu({ navigation, route }) {
                     }} />
                     <Text style={{
                         fontFamily: fonts.primary.normal,
-                        color: colors.white,
+                        color: colors.black,
                         fontSize: 20,
                         left: 10,
                     }}>{ITEM.title}</Text>
@@ -71,7 +71,7 @@ export default function Submenu({ navigation, route }) {
                             }}>
                                 <Text style={{
                                     fontFamily: fonts.primary[800],
-                                    color: colors.white,
+                                    color: colors.black,
                                     fontSize: 50,
                                     textAlign: 'center',
                                 }}>{item}</Text>

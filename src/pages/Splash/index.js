@@ -62,8 +62,9 @@ export default function Splash({ navigation }) {
         fontFamily: fonts.primary.normal,
         fontSize: 30,
         marginTop: 10,
+        textAlign: 'center',
         color: colors.primary
-      }}>Mesin Hitung</Text>
+      }}>MESIN HITUNG{'\n'}MI. KAHASRI</Text>
 
     </SafeAreaView>
   );

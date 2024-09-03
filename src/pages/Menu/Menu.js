@@ -26,7 +26,7 @@ export default function Menu({ navigation, route }) {
                     height: 30,
                     left: 10,
                 }}>
-                    <Icon color={colors.white} size={30} type='ionicon' name='arrow-back-outline' />
+                    <Icon color={colors.black} size={30} type='ionicon' name='arrow-back-outline' />
                 </TouchableOpacity>
                 <View style={{
                     flex: 0.9,
@@ -40,7 +40,7 @@ export default function Menu({ navigation, route }) {
                     }} />
                     <Text style={{
                         fontFamily: fonts.primary.normal,
-                        color: colors.white,
+                        color: ITEM.black,
                         fontSize: 20,
                         left: 10,
                     }}>{ITEM.title}</Text>
@@ -65,9 +65,9 @@ export default function Menu({ navigation, route }) {
                             }}>
                                 <Text style={{
                                     fontFamily: fonts.primary[800],
-                                    color: colors.white,
-                                    textShadowColor: colors.black,
-                                    textShadowOffset: { width: 0.2, height: 0.2 }, textShadowRadius: 0.5,
+                                    color: colors.black,
+                                    // textShadowColor: colors.black,
+                                    // textShadowOffset: { width: 0.2, height: 0.2 }, textShadowRadius: 0.5,
 
                                     fontSize: 12,
                                 }}>{item.tipe}</Text>

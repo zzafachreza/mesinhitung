@@ -254,7 +254,7 @@ export default function Soal({ navigation, route }) {
                     height: 30,
                     left: 10,
                 }}>
-                    <Icon color={colors.white} size={30} type='ionicon' name='arrow-back-outline' />
+                    <Icon color={colors.black} size={30} type='ionicon' name='arrow-back-outline' />
                 </TouchableOpacity>
                 <View style={{
                     flex: 0.9,
@@ -268,7 +268,7 @@ export default function Soal({ navigation, route }) {
                     }} />
                     <Text style={{
                         fontFamily: fonts.primary.normal,
-                        color: colors.white,
+                        color: colors.black,
                         fontSize: 20,
                         left: 10,
                     }}>{route.params.tipe == 'Persiapan Pembagian' ? 'PEMBAGIAN' : ITEM.title} {MULAI}</Text>
@@ -284,7 +284,7 @@ export default function Soal({ navigation, route }) {
                     fontFamily: fonts.primary[400],
                     fontSize: 12,
                     textAlign: 'center',
-                    color: ITEM.color,
+                    color: colors.black,
                     marginBottom: 16,
                 }}>{ITEM.tipe}</Text>
                 <View style={{
@@ -351,97 +351,97 @@ export default function Soal({ navigation, route }) {
                     alignItems: 'center',
                     overflow: 'hidden'
                 }}>
-                    {
+                    {ITEM.tipe !== 'Penjumlahan Maksimal 3 Digit (Menyimpan)'
+                        && ITEM.tipe !== 'Penjumlahan Maksimal 4 Digit (Menyimpan)'
+                        &&
                         ITEM.tipe !== 'Perkalian Susun Bilangan 2 Digit (Acak)'
-                            && ITEM.tipe !== 'Perkalian Susun Bilangan 3 Digit (Acak)'
-                            && ITEM.tipe !== 'Pembagian Susun Cara Cepat (2 Digit & 3 Digit)'
-                            && ITEM.tipe !== 'Pembagian Puluhan, Ratusan, dan Ribuan'
-                            && ITEM.tipe !== 'Pembagian Susun Cara Cepat (4 Digit, 5 Digit, 6 Digit)' ?
+                        && ITEM.tipe !== 'Perkalian Susun Bilangan 3 Digit (Acak)'
+                        && ITEM.tipe !== 'Pembagian Susun Cara Cepat (2 Digit & 3 Digit)'
+                        && ITEM.tipe !== 'Pembagian Puluhan, Ratusan, dan Ribuan'
+                        && ITEM.tipe !== 'Pembagian Susun Cara Cepat (4 Digit, 5 Digit, 6 Digit)' ?
 
-                            <View style={{
-                                flexDirection: 'row',
-                                alignItems: 'center'
-                            }}>
-                                {soal[nomor].a !== '?' &&
-
-                                    <Text style={{
-                                        marginHorizontal: 10,
-                                        fontFamily: fonts.primary[800],
-                                        fontSize: 40,
-
-                                    }}>{new Intl.NumberFormat("id-ID").format(soal[nomor].a)}</Text>
-                                }
-
-                                {soal[nomor].a == '?' &&
-
-                                    <Text style={{
-                                        marginHorizontal: 10,
-                                        fontFamily: fonts.primary[800],
-                                        fontSize: 40,
-
-                                    }}>{JAWABAN.length == 0 ? '?' : new Intl.NumberFormat("id-ID").format(JAWABAN)}</Text>
-                                }
-                                <Text style={{
-                                    marginHorizontal: 10,
-                                    fontFamily: fonts.primary[800],
-                                    fontSize: 40,
-
-                                }}>{ITEM.operator}</Text>
-                                {soal[nomor].b !== '?' &&
-
-                                    <Text style={{
-                                        marginHorizontal: 10,
-                                        fontFamily: fonts.primary[800],
-                                        fontSize: 40,
-
-                                    }}>{new Intl.NumberFormat("id-ID").format(soal[nomor].b)}</Text>
-                                }
-
-                                {soal[nomor].b == '?' &&
-
-                                    <Text style={{
-                                        marginHorizontal: 10,
-                                        fontFamily: fonts.primary[800],
-                                        fontSize: 40,
-
-                                    }}>{JAWABAN.length == 0 ? '?' : new Intl.NumberFormat("id-ID").format(JAWABAN)}</Text>
-                                }
+                        <View style={{
+                            flexDirection: 'row',
+                            alignItems: 'center'
+                        }}>
+                            {soal[nomor].a !== '?' &&
 
                                 <Text style={{
                                     marginHorizontal: 10,
                                     fontFamily: fonts.primary[800],
                                     fontSize: 40,
 
-                                }}>=</Text>
+                                }}>{new Intl.NumberFormat("id-ID").format(soal[nomor].a)}</Text>
+                            }
 
-                                {(soal[nomor].b == '?' || soal[nomor].a == '?') &&
+                            {soal[nomor].a == '?' &&
 
-                                    <Text style={{
-                                        marginHorizontal: 10,
-                                        fontFamily: fonts.primary[800],
-                                        fontSize: 40,
+                                <Text style={{
+                                    marginHorizontal: 10,
+                                    fontFamily: fonts.primary[800],
+                                    fontSize: 40,
 
-                                    }}>{soal[nomor].isi}</Text>
-                                }
+                                }}>{JAWABAN.length == 0 ? '?' : new Intl.NumberFormat("id-ID").format(JAWABAN)}</Text>
+                            }
+                            <Text style={{
+                                marginHorizontal: 10,
+                                fontFamily: fonts.primary[800],
+                                fontSize: 40,
 
-                                {(soal[nomor].b !== '?' && soal[nomor].a !== '?') &&
+                            }}>{ITEM.operator}</Text>
+                            {soal[nomor].b !== '?' &&
 
-                                    <Text style={{
-                                        marginHorizontal: 10,
-                                        fontFamily: fonts.primary[800],
-                                        fontSize: 40,
+                                <Text style={{
+                                    marginHorizontal: 10,
+                                    fontFamily: fonts.primary[800],
+                                    fontSize: 40,
 
-                                    }}>{JAWABAN.length > 0 ? new Intl.NumberFormat("id-ID").format(JAWABAN) : '?'}</Text>
-                                }
-                            </View>
-                            : <View></View>
+                                }}>{new Intl.NumberFormat("id-ID").format(soal[nomor].b)}</Text>
+                            }
+
+                            {soal[nomor].b == '?' &&
+
+                                <Text style={{
+                                    marginHorizontal: 10,
+                                    fontFamily: fonts.primary[800],
+                                    fontSize: 40,
+
+                                }}>{JAWABAN.length == 0 ? '?' : new Intl.NumberFormat("id-ID").format(JAWABAN)}</Text>
+                            }
+
+                            <Text style={{
+                                marginHorizontal: 10,
+                                fontFamily: fonts.primary[800],
+                                fontSize: 40,
+
+                            }}>=</Text>
+
+                            {(soal[nomor].b == '?' || soal[nomor].a == '?') &&
+
+                                <Text style={{
+                                    marginHorizontal: 10,
+                                    fontFamily: fonts.primary[800],
+                                    fontSize: 40,
+
+                                }}>{soal[nomor].isi}</Text>
+                            }
+
+                            {(soal[nomor].b !== '?' && soal[nomor].a !== '?') &&
+
+                                <Text style={{
+                                    marginHorizontal: 10,
+                                    fontFamily: fonts.primary[800],
+                                    fontSize: 40,
+
+                                }}>{JAWABAN.length > 0 ? new Intl.NumberFormat("id-ID").format(JAWABAN) : '?'}</Text>
+                            }
+                        </View>
+                        : <View></View>
 
 
                     }
 
-                    {(ITEM.tipe == 'Perkalian Susun Bilangan 2 Digit (Acak)'
-                        || ITEM.tipe == 'Perkalian Susun Bilangan 3 Digit (Acak)'
-                        || ITEM.tipe == 'Pembagian Susun Cara Cepat (2 Digit & 3 Digit)'
+                    {(ITEM.tipe == 'Pembagian Susun Cara Cepat (2 Digit & 3 Digit)'
                         || ITEM.tipe == 'Pembagian Puluhan, Ratusan, dan Ribuan'
                         || ITEM.tipe == 'Pembagian Susun Cara Cepat (4 Digit, 5 Digit, 6 Digit)')
                         &&
@@ -489,40 +489,154 @@ export default function Soal({ navigation, route }) {
                         </View>
 
                     }
+
+
+                    {(ITEM.tipe == 'Perkalian Susun Bilangan 2 Digit (Acak)'
+                        || ITEM.tipe == 'Perkalian Susun Bilangan 3 Digit (Acak)'
+                    ) &&
+
+
+                        <>
+                            <View style={{
+                                width: '100%',
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                            }}>
+                                <View style={{
+                                    flex: 1,
+                                    // justifyContent: 'flex-end',
+                                    alignItems: 'flex-end'
+                                }}>
+                                    <Text style={{
+                                        fontFamily: fonts.primary[800],
+                                        fontSize: 30,
+                                        lineHeight: 35,
+
+                                    }}>{new Intl.NumberFormat("id-ID").format(soal[nomor].a)}</Text>
+
+                                    <Text style={{
+                                        fontFamily: fonts.primary[800],
+                                        fontSize: 30,
+                                        lineHeight: 35,
+                                        borderBottomWidth: 4,
+                                        width: 50,
+                                        textAlign: 'right'
+                                    }}>{new Intl.NumberFormat("id-ID").format(soal[nomor].b)}</Text>
+                                </View>
+                                <Text style={{
+                                    flex: 0.8,
+                                    marginTop: 65,
+                                    fontFamily: fonts.primary[800],
+                                    fontSize: 30,
+                                    lineHeight: 35,
+                                }}>x</Text>
+
+                            </View>
+                            <View style={{
+                                flex: 1,
+                                // justifyContent: 'flex-end',
+                                alignItems: 'flex-start'
+                            }}>
+                                <Text style={{
+                                    fontFamily: fonts.primary[800],
+                                    fontSize: 30,
+                                    lineHeight: 35,
+                                }}>{JAWABAN.length > 0 ? new Intl.NumberFormat("id-ID").format(JAWABAN) : '?'}</Text>
+
+                            </View>
+                        </>
+                    }
+
+
+                    {(ITEM.tipe == 'Penjumlahan Maksimal 3 Digit (Menyimpan)'
+                        || ITEM.tipe == 'Penjumlahan Maksimal 4 Digit (Menyimpan)'
+                    ) &&
+
+
+                        <>
+                            <View style={{
+                                width: '100%',
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                            }}>
+                                <View style={{
+                                    flex: 1,
+                                    // justifyContent: 'flex-end',
+                                    alignItems: 'flex-end'
+                                }}>
+                                    <Text style={{
+                                        fontFamily: fonts.primary[800],
+                                        fontSize: 30,
+                                        lineHeight: 35,
+
+                                    }}>{new Intl.NumberFormat("id-ID").format(soal[nomor].a)}</Text>
+
+                                    <Text style={{
+                                        fontFamily: fonts.primary[800],
+                                        fontSize: 30,
+                                        lineHeight: 35,
+                                        borderBottomWidth: 4,
+                                        width: 50,
+                                        textAlign: 'right'
+                                    }}>{new Intl.NumberFormat("id-ID").format(soal[nomor].b)}</Text>
+                                </View>
+                                <Text style={{
+                                    flex: 0.8,
+                                    marginTop: 65,
+                                    fontFamily: fonts.primary[800],
+                                    fontSize: 30,
+                                    lineHeight: 35,
+                                }}>+</Text>
+
+                            </View>
+                            <View style={{
+                                flex: 1,
+                                // justifyContent: 'flex-end',
+                                alignItems: 'flex-start'
+                            }}>
+                                <Text style={{
+                                    fontFamily: fonts.primary[800],
+                                    fontSize: 30,
+                                    lineHeight: 35,
+                                }}>{JAWABAN.length > 0 ? new Intl.NumberFormat("id-ID").format(JAWABAN) : '?'}</Text>
+
+                            </View>
+                        </>
+                    }
                 </View>
 
                 <View style={{
                     padding: 10,
                     flexDirection: 'row',
-                    justifyContent: 'space-around'
+                    justifyContent: 'space-between'
 
                 }}>
                     <View style={{
-                        padding: 10,
+                        paddingVertical: 10,
                         backgroundColor: colors.primary,
                         borderRadius: 10,
-                        width: windowWidth / 3,
+                        width: windowWidth / 2.4,
                         justifyContent: 'center',
                         alignItems: 'center'
                     }}>
                         <Text style={{
                             fontFamily: fonts.primary[600],
                             color: colors.white,
-                            fontSize: 20,
+                            fontSize: 16,
                         }}>BENAR : {soal.filter(i => i.status == 'BENAR').length}</Text>
                     </View>
                     <View style={{
-                        padding: 10,
+                        paddingVertical: 10,
                         backgroundColor: colors.danger,
                         borderRadius: 10,
-                        width: windowWidth / 3,
+                        width: windowWidth / 2.4,
                         justifyContent: 'center',
                         alignItems: 'center'
                     }}>
                         <Text style={{
                             fontFamily: fonts.primary[600],
                             color: colors.white,
-                            fontSize: 20,
+                            fontSize: 16,
                         }}>SALAH : {soal.filter(i => i.status == 'SALAH').length}</Text>
                     </View>
                 </View>
