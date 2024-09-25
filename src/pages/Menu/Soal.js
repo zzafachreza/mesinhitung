@@ -553,55 +553,57 @@ export default function Soal({ navigation, route }) {
                     ) &&
 
 
-                        <>
+                        <View style={{
+                            // backgroundColor: 'red',
+                            // justifyContent: 'center',
+                            // alignItems: 'center'
+                        }}>
                             <View style={{
                                 width: '100%',
+
                                 flexDirection: 'row',
-                                alignItems: 'center',
+
                             }}>
-                                <View style={{
-                                    flex: 1,
-                                    // justifyContent: 'flex-end',
-                                    alignItems: 'flex-end'
-                                }}>
-                                    <Text style={{
-                                        fontFamily: fonts.primary[800],
-                                        fontSize: 30,
-                                        lineHeight: 35,
 
-                                    }}>{new Intl.NumberFormat("id-ID").format(soal[nomor].a)}</Text>
-
-                                    <Text style={{
-                                        fontFamily: fonts.primary[800],
-                                        fontSize: 30,
-                                        lineHeight: 35,
-                                        borderBottomWidth: 4,
-                                        width: 50,
-                                        textAlign: 'right'
-                                    }}>{new Intl.NumberFormat("id-ID").format(soal[nomor].b)}</Text>
-                                </View>
                                 <Text style={{
-                                    flex: 0.8,
-                                    marginTop: 65,
+
+                                    fontFamily: fonts.primary[800],
+                                    fontSize: 30,
+                                    lineHeight: 35,
+
+                                }}>{new Intl.NumberFormat("id-ID").format(soal[nomor].a)}</Text>
+                                <Text style={{
+
+
                                     fontFamily: fonts.primary[800],
                                     fontSize: 30,
                                     lineHeight: 35,
                                 }}>+</Text>
-
-                            </View>
-                            <View style={{
-                                flex: 1,
-                                // justifyContent: 'flex-end',
-                                alignItems: 'flex-start'
-                            }}>
                                 <Text style={{
                                     fontFamily: fonts.primary[800],
                                     fontSize: 30,
                                     lineHeight: 35,
-                                }}>{JAWABAN.length > 0 ? new Intl.NumberFormat("id-ID").format(JAWABAN) : '?'}</Text>
+                                    textAlign: 'right'
+                                }}>{new Intl.NumberFormat("id-ID").format(soal[nomor].b)}</Text>
 
                             </View>
-                        </>
+
+
+
+                            <View style={{
+                                // flex: 1,
+                                // justifyContent: 'flex-end',
+                                justifyContent: 'flex-start'
+                            }}>
+                                <Text style={{
+                                    textAlign: 'left',
+                                    fontFamily: fonts.primary[800],
+                                    fontSize: 30,
+                                    lineHeight: 35,
+                                }}>= {JAWABAN.length > 0 ? new Intl.NumberFormat("id-ID").format(JAWABAN) : '?'}</Text>
+
+                            </View>
+                        </View>
                     }
                 </View>
 
